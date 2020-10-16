@@ -1,0 +1,27 @@
+.App {
+  background-color: #2a2a2a;
+  color: aliceblue;
+}
+.container h1{
+  text-align: center;
+}
+.card{
+  background-color: none;
+}
+p{
+ margin: 0 !important;   
+}
+.temp-card .card-body .card-title{
+  font-size: 50px;
+}
+.big-meteo-card{
+  background-color: transparent !important;
+  padding: 5px;
+}
+.big-meteo-card .pic{
+  text-align: left;
+  margin-left: 10px;
+}
+.temp{
+  font-size: 40px !important;
+}
