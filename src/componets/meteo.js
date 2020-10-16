@@ -34,7 +34,7 @@ class Meteo extends Component {
             )
         }
         else{
-            console.log(items['main'])
+            console.log(items)
             return (
                 
                 <div className="Meteo">
@@ -51,7 +51,7 @@ class Meteo extends Component {
                                 <strong>{items['main']['temp']}°</strong>
                             </p>
                             <p className='lead pic'>Fell Like : 
-                            <strong> 10° </strong>
+                            <strong> {items['main']['feels_like']}° </strong>
                             </p>
                             <p className='lead pic'>
                                 Min :<strong> {items['main']['temp_min']}° </strong>
