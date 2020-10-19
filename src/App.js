@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row } from 'react-bootstrap';
 
 import Meteo from './componets/meteo'
-
+import Time from './componets/timeGoogle'
 function App() {
   return (
     <div className="App">
@@ -12,8 +12,7 @@ function App() {
         <h1>Smart Dashboard</h1>
         <Row>
           <Col>
-          </Col>
-          <Col>
+            <Time />
           </Col>
           <Col>
             <Meteo />

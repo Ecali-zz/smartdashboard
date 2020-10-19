@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Card } from 'react-bootstrap';
+import { Container, Card, Spinner } from 'react-bootstrap';
 
 
 class Meteo extends Component {
@@ -10,10 +10,7 @@ class Meteo extends Component {
             items : [],
             isLoaded : false
         }
-        //const key = '45c049b068ec0fe819d536d46ec7f95f';
-        //const ApiLink = 'api.openweathermap.org/data/2.5/';
-        //const CompleteApiLink = 'http://api.openweathermap.org/data/2.5/weather?q=gallarate&units=metric&appid=45c049b068ec0fe819d536d46ec7f95f';
-    }
+   }
     componentDidMount() {
         fetch('https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=gallarate&units=metric&appid=45c049b068ec0fe819d536d46ec7f95f')
             .then(res => res.json())
@@ -23,14 +20,14 @@ class Meteo extends Component {
                     items : json
                 })
             );
-        console.log(this.state.items); 
+        
     }
     render(){
-
+        //console.log('gigi : ' + this.state.items['main']); 
         var { isLoaded, items } = this.state;
         if(!isLoaded){
             return(
-                <div>Loading ...</div>
+                <Spinner animation="grow" variant="info" />
             )
         }
         else{

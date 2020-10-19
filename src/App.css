@@ -1,6 +1,7 @@
 .App {
   background-color: #2a2a2a;
   color: aliceblue;
+  min-height: 2000px;
 }
 .container h1{
   text-align: center;
@@ -24,4 +25,9 @@ p{
 }
 .temp{
   font-size: 40px !important;
+}
+.listTime .list-group-item{
+  color: aliceblue;
+  background-color: #2a2a2a;
+  border: none;
 }
