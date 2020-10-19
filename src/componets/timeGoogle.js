@@ -54,9 +54,6 @@ class Time extends Component {
     render(){
         
         var { isLoadedWork, isLoadedLove, toWork, toLove} = this.state;
-        if(toWork !== undefined && isLoadedLove){
-            console.log('porco dio');
-        }
         if(!isLoadedWork && !isLoadedLove){
             return(
                 <Spinner animation="grow" variant="info" />
