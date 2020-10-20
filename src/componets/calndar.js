@@ -24,7 +24,7 @@ function Calendar () {
             gapi.client.load('calendar', 'v3', ()=> console.log('bam!'))
 
             gapi.auth2.getAuthInstance().signIn()
-                .then(()=>{
+                /*.then(()=>{
                     
                     var event = {
                         'summary': 'Awesome Event!',
@@ -62,8 +62,11 @@ function Calendar () {
                         console.log(event)
                         window.open(event.htmlLink)
                     })
-                })
-            /*gapi.client.calendar.events.list({
+                })*/
+                var calendarid = 'https://calendar.google.com/calendar/u/0?cid=ZWNhbGkzMDFAZ21haWwuY29t';
+            
+            
+                gapi.client.calendar.events.list({
                 'calendarId' : 'primary',
                 'timeMin' : (new Date()).toISOString(),
                 'showDeleted' : false,
@@ -73,7 +76,7 @@ function Calendar () {
             }).then(response =>{
                 const events = response.result.items
                 console.log('EVENTS : ', events);
-            })*/
+            })
         })
     }
 

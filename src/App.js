@@ -48,6 +48,13 @@ function App() {
               />
           </Col>
          </Row>
+         <Row>
+          <Col>
+              <StdCard
+                componente = {Cal}
+              />
+          </Col>
+         </Row>
       </Container>
     </div>
   );
