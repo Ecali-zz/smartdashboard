@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Card, Spinner, ListGroup } from 'react-bootstrap';
+import { Spinner, ListGroup } from 'react-bootstrap';
 
 
 class Time extends Component {
@@ -109,24 +109,15 @@ class Time extends Component {
 
             
             return (
-                <div className="Meteo">
-                    <Container>
-                        <Card
-                            border="info"
-                            className='big-meteo-card'
-                        >
-                            <ListGroup className='listTime'>
-                                <ListGroup.Item>
-                                    <p className='lead'><strong>To Work</strong>  {distanceToWork}km in {timework}min</p>
-                                </ListGroup.Item>
-                                <ListGroup.Item>
-                                    <p className='lead'><strong>To Love</strong>  {distanceToLove}km in {timelove}min</p>
-                                </ListGroup.Item>
-                            </ListGroup>
-                        </Card>
-                        
-                        
-                    </Container>
+                <div className="Time">
+                    <ListGroup className='listTime'>
+                        <ListGroup.Item>
+                            <p className='lead'><strong>To Work</strong>  {distanceToWork}km in {timework}min</p>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <p className='lead'><strong>To Love</strong>  {distanceToLove}km in {timelove}min</p>
+                        </ListGroup.Item>
+                    </ListGroup>
                 </div>
               );
         }

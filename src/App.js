@@ -3,19 +3,41 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Col, Row } from 'react-bootstrap';
 
+import StdCard from './componets/crad'
 import Meteo from './componets/meteo'
 import Time from './componets/timeGoogle'
+import Bitcoin from './componets/bitcoin'
+
+
+
 function App() {
+  const Bit = <Bitcoin />
+  const Mete = <Meteo />
+  const Tim = <Time />
+
   return (
     <div className="App">
       <Container>
         <h1>Smart Dashboard</h1>
         <Row>
           <Col>
-            <Time />
+          <StdCard 
+              componente = {Tim}
+              />
           </Col>
           <Col>
-            <Meteo />
+            <StdCard 
+              componente = {Mete}
+              />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <StdCard
+              componente = {Bit}
+            />
+          </Col>
+          <Col>
           </Col>
         </Row>
       </Container>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Card, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 
 
 class Meteo extends Component {
@@ -35,29 +35,19 @@ class Meteo extends Component {
             return (
                 
                 <div className="Meteo">
-                    <Container>
-                        <Card
-                            style={{ width: '15rem'}}
-                            border="info"
-                            className='big-meteo-card'
-                        >
-                            <p className='lead'>
-                                <strong>{items['name']}</strong>
-                            </p>
-                            <p className='lead temp'>
-                                <strong>{items['main']['temp']}°</strong>
-                            </p>
-                            <p className='lead pic'>Fell Like : 
-                            <strong> {items['main']['feels_like']}° </strong>
-                            </p>
-                            <p className='lead pic'>
-                                Min :<strong> {items['main']['temp_min']}° </strong>
-                                Max :<strong> {items['main']['temp_max']}° </strong>                        
-                            </p>
-                        </Card>
-                        
-                        
-                    </Container>
+                    <p className='lead'>
+                        <strong>{items['name']}</strong>
+                    </p>
+                    <p className='lead temp'>
+                        <strong>{items['main']['temp']}°</strong>
+                    </p>
+                    <p className='lead pic'>Fell Like : 
+                    <strong> {items['main']['feels_like']}° </strong>
+                    </p>
+                    <p className='lead pic'>
+                        Min :<strong> {items['main']['temp_min']}° </strong>
+                        Max :<strong> {items['main']['temp_max']}° </strong>                        
+                    </p>
                 </div>
               );
         }
