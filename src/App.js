@@ -26,6 +26,9 @@ function App() {
               />
           </Col>
           <Col>
+            <StdCard
+              componente = {Bit}
+            />
           </Col>
           <Col>
             <StdCard 
@@ -34,16 +37,17 @@ function App() {
           </Col>
           
         </Row>
+        <Row>
+          
+        </Row>
+         <Row>
           <Col>
-            <StdCard
-              componente = {Bit}
-            />
+              <StdCard
+                componente = {Quot}
+                min = 'true'
+              />
           </Col>
-        <Col>
-            <StdCard
-              componente = {Quot}
-            />
-        </Col>
+         </Row>
       </Container>
     </div>
   );

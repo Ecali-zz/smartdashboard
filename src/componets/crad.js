@@ -4,19 +4,28 @@ import { Container, Card } from 'react-bootstrap';
 
 class StdCard extends Component {
 
+    constructor(props){
+        super(props);
+        this.classN = 'std-card';
+    }
+
+    setClass(){
+        
+        if(this.props.min === 'true'){
+            this.classN = this.classN + ' min-card';
+        }
+    }
+
     render(){
+        this.setClass();
             return (
-                
-                <div className="std-card">
-                    <Container>
+                <div className="">
                         <Card
-                            className='std-card'
+                            className={this.classN}
                             border="info"
-                            className='big-meteo-card'
                         >
                             {this.props.componente}
                         </Card>
-                    </Container>
                 </div>
               );
         }

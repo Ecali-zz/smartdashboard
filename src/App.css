@@ -16,8 +16,7 @@ p{
   font-size: 50px;
 }
 .big-meteo-card{
-  background-color: transparent !important;
-  padding: 5px;
+  
 }
 .big-meteo-card .pic{
   text-align: left;
@@ -33,4 +32,15 @@ p{
 }
 .std-card{
   text-align: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: transparent !important;
+  min-height: 200px;
+}
+.col{
+  padding: 0;
+  margin: 0 !important;
+}
+.min-card{
+  min-height: auto !important;
 }

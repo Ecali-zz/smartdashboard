@@ -12,7 +12,7 @@ class Quotes extends Component{
     }
     componentDidMount(){
 
-        var rndNumber = this.randomInt( 0, 100) 
+        var rndNumber = this.randomInt( 0, 1000) 
 
         fetch("https://type.fit/api/quotes")
             .then(res => res.json())
@@ -22,16 +22,24 @@ class Quotes extends Component{
                     auth : json[rndNumber]['author']
                 })
             );
+            this.unknownAuth();
     }
     randomInt(min, max) {
         return min + Math.floor((max - min) * Math.random());
     }
+    unknownAuth(){
+        if(this.state.auth === ''){
+            this.setState({
+                auth : 'unknown'
+            })
+        }
+    }
     render(){
-        console.log(this.state.auth);
+        
         return(
             <div>
                 <h2>{this.state.quote}</h2>
-                <h5>{this.state.auth}</h5>
+                <h5>- {this.state.auth}</h5>
             </div>
         );
     }
