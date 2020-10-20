@@ -7,14 +7,14 @@ import StdCard from './componets/crad'
 import Meteo from './componets/meteo'
 import Time from './componets/timeGoogle'
 import Bitcoin from './componets/bitcoin'
-
-
-
+import Calendar from './componets/calndar'
+import Quotes from './componets/quotes'
 function App() {
   const Bit = <Bitcoin />
   const Mete = <Meteo />
   const Tim = <Time />
-
+  const Cal = <Calendar />
+  const Quot = <Quotes />
   return (
     <div className="App">
       <Container>
@@ -39,7 +39,11 @@ function App() {
               componente = {Bit}
             />
           </Col>
-
+        <Col>
+            <StdCard
+              componente = {Quot}
+            />
+        </Col>
       </Container>
     </div>
   );
