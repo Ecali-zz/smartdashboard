@@ -19,7 +19,7 @@ class Time extends Component {
         const TargetLocation2 = "Via Mottarone 15 Arona Novara";
 
         const  API_ACCESS_KEY = 'wVdnuFIlVQmmifCVz6BqhpFm4axngMwG';
-        const API_Altered_Key = 'Y1mOG4V2qzRgksSGPjWi7KczVIoCnYJf';
+        //const API_Altered_Key = 'Y1mOG4V2qzRgksSGPjWi7KczVIoCnYJf';
         let corsLink = 'https://cors-anywhere.herokuapp.com/';
         let apiUrl = 'http://www.mapquestapi.com/directions/v2/route?';
         
@@ -29,32 +29,60 @@ class Time extends Component {
         let finalApiURLWork = `${corsLink}${apiUrl}${encodeURI(paramsWork)}`;
         let finalApiURLLove = `${corsLink}${apiUrl}${encodeURI(paramsLove)}`;
 
+
+
         //let linkApi = 'http://www.mapquestapi.com/directions/v2/route?key=wVdnuFIlVQmmifCVz6BqhpFm4axngMwG&from=varese&to=Milano';
-        console.log(finalApiURLWork);
-        fetch(finalApiURLWork)
-            .then(res => res.json())
-            .then(json =>
-                this.setState({
-                    isLoadedWork : true,
-                    toWork : json
-                })
-        );
-        fetch(finalApiURLLove)
-            .then(res => res.json())
-            .then(json =>
-                this.setState({
-                    isLoadedLove : true,
-                    toLove : json
-                })
-        );
-            
         
+        if(localStorage.getItem('isLoadedW') === null){
+            console.log('Call API');
+            fetch(finalApiURLWork)
+                .then(res => res.json())
+                .then(json =>
+                    this.setState({
+                        isLoadedWork : true,
+                        toWork : json
+                    })
+            );
+            fetch(finalApiURLLove)
+                .then(res => res.json())
+                .then(json =>
+                    this.setState({
+                        isLoadedLove : true,
+                        toLove : json
+                    })
+            );
+        }else{
+            console.log('USE LOCAL STORAGE');
+
+        }
+        
+    }
+
+    setLocalStorage(){
+        localStorage.setItem('timeToWork', this.state.toWork['route']['formattedTime']);  
+        localStorage.setItem('distToWork', this.state.toWork['route']['distance']);  
+        localStorage.setItem('timeToLove', this.state.toLove['route']['formattedTime']);  
+        localStorage.setItem('distToLove', this.state.toLove['route']['distance']);
+        localStorage.setItem('isLoadedW' , this.state.isLoadedWork);
+        localStorage.setItem('isLoadedL' ,  this.state.isLoadedLove);
     }
 
     render(){
         
         var { isLoadedWork, isLoadedLove, toWork, toLove} = this.state;
-        if(!isLoadedWork && !isLoadedLove){
+        var loadedW = false;
+        var loadedL = false;
+
+        if(localStorage.getItem('isLoadedW') && localStorage.getItem('isLoadedL')){
+            loadedL = localStorage.getItem('isLoadedL');
+            loadedW = localStorage.getItem('isLoadedW');
+        }else{
+            loadedL = isLoadedLove;
+            loadedW = isLoadedWork;
+        }
+        
+        
+        if(!loadedL && !loadedW){
             return(
                 <Spinner animation="grow" variant="info" />
             )
@@ -64,23 +92,22 @@ class Time extends Component {
             let distanceToLove = 0;
             let timelove = 0, timework = 0;
             
-
-            if(isLoadedWork){
-                console.log('towork funziona')
-                timework = toWork['route']['formattedTime']
-                distanceToWork = toWork['route']['distance']  ;
+            if(localStorage.getItem('timeToWork') != null){
+                timework = localStorage.getItem('timeToWork');
+                timelove = localStorage.getItem('timeToLove');
+                distanceToLove = localStorage.getItem('distToLove');
+                distanceToWork = localStorage.getItem('distToWork');
+            } else if(isLoadedWork){
+                timework = toWork['route']['formattedTime'];
+                distanceToWork = toWork['route']['distance'];
                 if(isLoadedLove){
-                    console.log('tolove funziona')
-                    console.log(toLove);
-                    distanceToLove = toLove['route']['distance']  ;
+                    distanceToLove = toLove['route']['distance'];
                     timelove = toLove['route']['formattedTime'];
-                    
-                }else{
-                    console.log('tolove non funziona')
-
+                    this.setLocalStorage();
                 }
-                
             }
+
+            
             return (
                 <div className="Meteo">
                     <Container>
