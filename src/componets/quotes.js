@@ -28,7 +28,7 @@ class Quotes extends Component{
         return min + Math.floor((max - min) * Math.random());
     }
     unknownAuth(){
-        if(this.state.auth === ''){
+        if(this.state.auth === null){
             this.setState({
                 auth : 'unknown'
             })

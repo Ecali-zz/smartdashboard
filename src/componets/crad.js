@@ -12,7 +12,7 @@ class StdCard extends Component {
     setClass(){
         
         if(this.props.min === 'true'){
-            this.classN = this.classN + ' min-card';
+            this.classN = this.classN + ' card-min';
         }
     }
 

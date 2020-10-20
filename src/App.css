@@ -41,6 +41,9 @@ p{
   padding: 0;
   margin: 0 !important;
 }
-.min-card{
+.card-min{
   min-height: auto !important;
+}
+.card-nob{
+  border: none !important;
 }
