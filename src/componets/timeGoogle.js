@@ -112,10 +112,10 @@ class Time extends Component {
                 <div className="Time">
                     <ListGroup className='listTime'>
                         <ListGroup.Item>
-                            <p className='lead'><strong>To Work</strong>  {distanceToWork}km in {timework}min</p>
+                            <p className='lead'><strong>To Work<br/></strong>{distanceToWork}km in {timework}min</p>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <p className='lead'><strong>To Love</strong>  {distanceToLove}km in {timelove}min</p>
+                            <p className='lead'><strong>To Love<br/></strong>{distanceToLove}km in {timelove}min</p>
                         </ListGroup.Item>
                     </ListGroup>
                 </div>

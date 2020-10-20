@@ -18,15 +18,7 @@ class Bitcoin extends Component{
         this.apicall = this.apicall.bind(this);
     }
     componentDidMount(){
-        /*let corsLink = 'https://cors-anywhere.herokuapp.com/';
-        const API_LINK = 'https://api.nomics.com/v1/currencies/ticker?';
-        const id = 'BTC';
-        const currency = 'EUR';
-        const API_KEY = '069a7c9630bfed5a67d4ed49c724b18b';
-        const params = `key=${API_KEY}&ids=${id}&convert=${currency}`;
-        const finalApiURL = `${corsLink}${API_LINK}${encodeURI(params)}`;*/
         this.apicall();
-        
     }
     apicall(){
         var link = this.finalApiURL;

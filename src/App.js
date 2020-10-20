@@ -20,26 +20,26 @@ function App() {
       <Container>
         <h1>Smart Dashboard</h1>
         <Row>
-          <Col>
+        <Col>
           <StdCard 
               componente = {Tim}
               />
+          </Col>
+          <Col>
           </Col>
           <Col>
             <StdCard 
               componente = {Mete}
               />
           </Col>
+          
         </Row>
-        <Row>
           <Col>
             <StdCard
               componente = {Bit}
             />
           </Col>
-          <Col>
-          </Col>
-        </Row>
+
       </Container>
     </div>
   );
